@@ -1,0 +1,15 @@
+reset
+
+set terminal pngcairo size 800,600 enhanced font 'Verdana,10'
+set output outputfile
+
+set title plottitle
+unset key
+set ylabel 'Result'
+set xlabel 'Date'
+set grid
+set style data steps
+set xtics rotate by -45
+
+plot inputfile using 0:1:xticlabels(2), \
+     inputfile using 0:1 t '' with points

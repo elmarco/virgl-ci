@@ -1,0 +1,17 @@
+reset
+
+set terminal pngcairo size 800,600 enhanced font 'Verdana,10'
+set output "piglit.png"
+
+set key invert reverse Left outside
+set key autotitle columnheader
+set auto x
+unset xtics
+set xtics nomirror rotate by -45 scale 0
+set style data histogram
+set style histogram rowstacked
+set style fill solid border -1
+set boxwidth 0.75
+
+plot 'piglit.dat' using 1:xtic(5), for [i=2:4] '' using i
+
